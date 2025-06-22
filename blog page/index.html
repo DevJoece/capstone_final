@@ -18,10 +18,16 @@
 
       <div class="aside-nav">
         <ul>
-          <a href="../Dashboard_page/index.html"><li><i class="ri-function-fill"></i></i> Dashboard</li></a>
-          <a href="../Style Page/index.html"><li><i class="ri-shopping-bag-2-fill"></i> Styles</li></a>
+          <a href="../Dashboard_page/index.html">
+            <li><i class="ri-function-fill"></i></i> Dashboard</li>
+          </a>
+          <a href="../Style Page/index.html">
+            <li><i class="ri-shopping-bag-2-fill"></i> Styles</li>
+          </a>
           <li class="active"><i class="fa-solid fa-book-open"></i>Blogs</li>
-          <a href="../USER-PAGE/index.html"><li><i class="ri-group-fill"></i>Users</li></a>
+          <a href="../USER-PAGE/index.html">
+            <li><i class="ri-group-fill"></i>Users</li>
+          </a>
         </ul>
         <div class="logout"><a href="../index.html"><i class="ri-logout-box-line"></i>Log out</a> </div>
       </div>
@@ -46,7 +52,7 @@
       </header>
       <hr class="h-rule">
       <section class="blogs-section">
-        <h2>Blogs  <span id="blogCount" class="blog-count">(0)</span></h2>
+        <h2>Blogs <span id="blogCount" class="blog-count">(0)</span></h2>
         <div class="blog-tabs">
           <span class="active">All</span>
           <span>Published</span>
@@ -124,7 +130,7 @@
 
 
 
-         <!-- Blog Modal -->
+        <!-- Blog Modal -->
         <div id="blogModal" class="modal">
           <div class="modal-content">
             <div class="modal-content-heading">
@@ -139,12 +145,12 @@
               <input type="text" id="title" required><br>
 
               <div class="image-upload-container" id="imageUploadContainer">
-                  <span id="uploadText">Upload an image</span>
-                  <input type="file" id="image" accept="image/*">
-                  <img id="imagePreview" src="" alt="Preview" style="display: none;">
-                  <button type="button" id="removeImageBtn" class="remove-btn" style="display: none;">
-                    <i class="ri-close-line"></i>
-                  </button>
+                <span id="uploadText">Upload an image</span>
+                <input type="file" id="image" accept="image/*">
+                <img id="imagePreview" src="" alt="Preview" style="display: none;">
+                <button type="button" id="removeImageBtn" class="remove-btn" style="display: none;">
+                  <i class="ri-close-line"></i>
+                </button>
               </div>
 
               <label class="add-blog-title">Category</label><br>
@@ -172,30 +178,30 @@
 
 
 
-<div id="viewModal" class="modal">
-  <div class="view-modal-content">
-      <span class="close-view"><i class="ri-close-line"></i></span>
+        <div id="viewModal" class="modal">
+          <div class="view-modal-content">
+            <span class="close-view"><i class="ri-close-line"></i></span>
 
-      <div class="modal-header">
-        <h2 id="viewTitle"></h2>
-        <p id="viewCategory"></p>
-      </div>
+            <div class="modal-header">
+              <h2 id="viewTitle"></h2>
+              <p id="viewCategory"></p>
+            </div>
 
-      <div id="viewImageContainer">
-        <img id="viewImage" src="" alt="Blog Thumbnail">
-      </div>
+            <div id="viewImageContainer">
+              <img id="viewImage" src="" alt="Blog Thumbnail">
+            </div>
 
-      <div class="modal-body">
-        <p id="viewContent"></p>
-      </div>
+            <div class="modal-body">
+              <p id="viewContent"></p>
+            </div>
 
-      <div class="modal-footer">
-        <p id="viewStatus"></p>
-        <p id="viewModified"></p>
-        <p id="viewViews"></p>
-      </div>
-  </div>
-</div>
+            <div class="modal-footer">
+              <p id="viewStatus"></p>
+              <p id="viewModified"></p>
+              <p id="viewViews"></p>
+            </div>
+          </div>
+        </div>
 
       </section>
 
@@ -204,6 +210,13 @@
   </div>
 
 
+  <div id="mobileOverlay">
+    <div class="overlay-content">
+      <h1>Please Open on Desktop</h1>
+      <p>This page is only viewable on desktop devices.</p>
+    </div>
+        
+  </div>
 
   <script src="main.js"> </script>
 </body>
@@ -217,7 +230,7 @@
 
 
 
-          <!--
+<!--
           <tr>
                 <td><input type="checkbox" /></td>
                 <td class="truncate">

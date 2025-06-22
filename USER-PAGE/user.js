@@ -142,4 +142,23 @@ document.addEventListener("DOMContentLoaded", function () {
       toast.remove();
     }, 3000);
   }
+
+function checkScreenSize() {
+  const overlay = document.getElementById("mobileOverlay");
+  const mainContent = document.querySelector(".main-content");
+
+  if (window.innerWidth < 1024) {
+    overlay.style.display = "block";
+    mainContent.classList.add("hide-content");
+  } else {
+    overlay.style.display = "none";
+    mainContent.classList.remove("hide-content");
+  }
+}
+
+// Run on initial load
+document.addEventListener("DOMContentLoaded", checkScreenSize);
+
+// Run on window resize
+window.addEventListener("resize", checkScreenSize);
 });

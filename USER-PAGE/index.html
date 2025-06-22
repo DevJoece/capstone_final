@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1024" />
@@ -8,16 +9,23 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7ab9b9ccff.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-   <div class="dashboard-container">
+  <div class="dashboard-container">
     <aside class="sidebar">
       <div class="logo"><img src="./image/1001278732 1.png">MyStyleMag</div>
 
       <div class="aside-nav">
         <ul>
-          <a href="../Dashboard_page/index.html"><li><i class="ri-function-fill"></i></i> Dashboard</li></a>
-          <a href="../Style Page/index.html"><li><i class="ri-shopping-bag-2-fill"></i> Styles</li></a>
-          <a href="../blog page/index.html"><li><i class="ri-book-open-fill"></i> Blogs</li></a>
+          <a href="../Dashboard_page/index.html">
+            <li><i class="ri-function-fill"></i></i> Dashboard</li>
+          </a>
+          <a href="../Style Page/index.html">
+            <li><i class="ri-shopping-bag-2-fill"></i> Styles</li>
+          </a>
+          <a href="../blog page/index.html">
+            <li><i class="ri-book-open-fill"></i> Blogs</li>
+          </a>
           <li class="active"><i class="ri-group-fill"></i> Users</li>
         </ul>
         <div class="logout"> <a href="../index.html"><i class="ri-logout-box-line"></i> Log out</a></div>
@@ -45,7 +53,7 @@
         <h2>Users <span id="totalUsers" class="users-count">(0)</span></h2>
 
         <div class="users-toolbar">
-          <input class="table-search" placeholder="Search Users"/>
+          <input class="table-search" placeholder="Search Users" />
           <div class="toolbar-actions">
             <button><i class="ri-upload-line"></i> Export</button>
             <button><i class="ri-filter-3-line"></i> Filter</button>
@@ -105,8 +113,17 @@
     </main>
   </div>
 
+  <div id="mobileOverlay">
+    <div class="overlay-content">
+      <h1>Please Open on Desktop</h1>
+      <p>This page is only viewable on desktop devices.</p>
+    </div>
+        
+  </div>
+
 
 
   <script src="/USER-PAGE/user.js"></script>
 </body>
+
 </html>
