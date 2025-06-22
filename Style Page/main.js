@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //      categorySelect.appendChild(option);
   //    });
   //   }
- 
+  let categoryMap = {}
   function loadCategories(){
     fetch("https://my-style-mag-backend.onrender.com/api/v1/category",{
       method: "GET",
@@ -79,25 +79,28 @@ document.addEventListener("DOMContentLoaded", function () {
       return res.json()
     })
     .then(data => {
-      console.log("Categories:", data)
+      
       // if (!data.status || ! Array.isArray(data.data)){
       //   throw new Error("Could not fetch categories")
       // }
       // const categories = data.data || []
       const categorySelect = document.getElementById("category");
 
-      if(!categorySelect){
-        console.log("Category select element not found")
-        return
-      }
-      const categories =  data.data
-      categorySelect.innerHTML = `<option value="" disabled selected>Select category</option>`;
-      categories.forEach((category) => {
+      categoryMap = {}
+      data.data.forEach((category) => {
+        categoryMap[category.id] = category.name
+        categorySelect.innerHTML = `<option value="" disabled selected>Select category</option>`;
         const option = document.createElement("option");
         option.value = category.id;
         option.textContent = category.name;
         categorySelect.appendChild(option);
+
+        categoryMap[category.id] = category.name
       })
+      
+      
+  
+     
     })
     .catch(err => {
       console.error("Failed to load categories:" ,err.message)
@@ -159,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const categoryName = style.category?.name|| "Unknown";
+    const categoryName = categoryMap[style.categoryId || "Unknown"];
     // const imageUrl = style.imageurls?.[0] || "https://via.placeholder.com/50"
 
 
