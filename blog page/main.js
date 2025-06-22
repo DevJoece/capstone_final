@@ -114,53 +114,67 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function addBlogToTable(blog) {
-  const table = document.querySelector(".blogs-table tbody");
-  const newRow = table.insertRow();
-  newRow.innerHTML = `
-    <td><input type="checkbox" /></td>
-    <td class="title-cell">
-      ${blog.imageUrl ? `<img src="${blog.imageUrl}" alt="Blog Image" style="width:40px;height:40px;object-fit:cover;margin-right:8px;border-radius:50%;">` : ""}
-      <span class="blog-title">${blog.title}</span>
-    </td>
-    <td>${blog.category?.name || 'Uncategorized'}</td>
-    <td>${blog.status}</td>
-    <td>${formatDate(new Date(blog.updatedAt))}</td>
-    <td>${formatDate(new Date(blog.createdAt))}</td>
-    <td>${blog.views || 0}</td>
-    <td>
-      <i class="ri-more-fill action-menu" style="cursor:pointer;" data-id="${blog.id}"></i>
-    </td>
-  `;
+    const table = document.querySelector(".blogs-table tbody");
+    const newRow = table.insertRow();
+    newRow.innerHTML = `
+      <td><input type="checkbox" /></td>
+      <td class="title-cell">
+        ${blog.imageUrl ? `<img src="${blog.imageUrl}" alt="Blog Image" style="width:40px;height:40px;object-fit:cover;margin-right:8px;border-radius:50%;">` : ""}
+        <span class="blog-title">${blog.title}</span>
+      </td>
+      <td>${blog.category?.name || 'Uncategorized'}</td>
+      <td>${blog.status}</td>
+      <td>${formatDate(new Date(blog.updatedAt))}</td>
+      <td>${formatDate(new Date(blog.createdAt))}</td>
+      <td>${blog.views || 0}</td>
+      <td>
+        <i class="ri-more-fill action-menu" style="cursor:pointer;" data-id="${blog.id}"></i>
+      </td>
+    `;
+    let searchInput = document.querySelector('.table-search')
+    let rows = document.querySelectorAll('tbody tr')
 
-  // ✅ Add click listener to the entire row (excluding the action-menu cell)
-  newRow.addEventListener("click", (e) => {
-    // prevent conflict when clicking the action menu button
-    if (e.target.closest(".action-menu") || e.target.tagName === "INPUT") return;
+    searchInput.addEventListener('keyup', (e) => {
+      let value = e.target.value.toLowerCase();
+      rows.forEach(row => {
+          let title = row.querySelector('.title-cell').textContent.toLowerCase();
+        if (title.includes(value)){
+            row.style.display = 'table-row'
+        } else {
+            row.style.display = 'none'
+        }
+      })
 
-    document.getElementById("viewTitle").innerText = blog.title;
-    document.getElementById("viewCategory").innerText = `Category: ${blog.category?.name || 'Uncategorized'}`;
-    document.getElementById("viewContent").innerText = blog.content;
-    document.getElementById("viewStatus").innerText = `Status: ${blog.status}`;
-    document.getElementById("viewModified").innerText = `Modified: ${formatDate(new Date(blog.updatedAt))}`;
-    document.getElementById("viewViews").innerText = `Views: ${blog.views || 0}`;
+    })
+   // ✅ Add click listener to the entire row (excluding the action-menu cell)
+    newRow.addEventListener("click", (e) => {
+      // prevent conflict when clicking the action menu button
+      if (e.target.closest(".action-menu") || e.target.tagName === "INPUT") return;
 
-    // ✅ Image preview logic
-    const viewImage = document.getElementById("viewImage");
-    const viewImageContainer = document.getElementById("viewImageContainer");
+      document.getElementById("viewTitle").innerText = blog.title;
+      document.getElementById("viewCategory").innerText = `Category: ${blog.category?.name || 'Uncategorized'}`;
+      document.getElementById("viewContent").innerText = blog.content;
+      document.getElementById("viewStatus").innerText = `Status: ${blog.status}`;
+      document.getElementById("viewModified").innerText = `Modified: ${formatDate(new Date(blog.updatedAt))}`;
+      document.getElementById("viewViews").innerText = `Views: ${blog.views || 0}`;
 
-    if (blog.imageUrl) {
-      viewImage.src = blog.imageUrl;
-      viewImage.style.display = "block";
-      viewImageContainer.style.display = "block";
-    } else {
-      viewImage.src = "";
-      viewImage.style.display = "none";
-      viewImageContainer.style.display = "none";
-    }
+      // ✅ Image preview logic
+      const viewImage = document.getElementById("viewImage");
+      const viewImageContainer = document.getElementById("viewImageContainer");
 
-    viewModal.classList.add("show");
-  });
-}
+      if (blog.imageUrl) {
+        viewImage.src = blog.imageUrl;
+        viewImage.style.display = "block";
+        viewImageContainer.style.display = "block";
+      } else {
+        viewImage.src = "";
+        viewImage.style.display = "none";
+        viewImageContainer.style.display = "none";
+      }
+
+      viewModal.classList.add("show");
+    });
+  }
 
 
 
