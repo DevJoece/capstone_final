@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1024" />
+  <title>MyStyleMag Users Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/7ab9b9ccff.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="logo"><img src="./image/1001278732 1.png"> MyStyleMag</div>
+
+      <div class="aside-nav">
+        <ul>
+          <a href="../Dashboard_page/index.html"><li><i class="ri-function-fill"></i> Dashboard</li></a>
+          <li class="active"><i class="ri-shopping-bag-2-fill"></i> Styles</li>
+          <a href="../blog page/index.html">
+            <li><i class="ri-book-open-fill"></i> Blogs</li>
+          </a>
+          <a href="../USER-PAGE/index.html">
+            <li><i class="ri-group-fill"></i> Users</li>
+          </a>
+        </ul>
+        <div class="logout"> <a href="../login.html"><i class="ri-logout-box-line"></i> Log out</a></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="main-header">
+        <input class="search-bar" type="text" placeholder="Search blogs, styles, users..." />
+
+        <div class="header-actions">
+          <i class="fa-regular fa-bell"></i>
+          <span class="admin-avatar">
+
+            <img src="./image/Frame 886.png" alt="Admin" />
+            <span>
+              Admin<br />
+              <small>adminuser@gmail.com</small>
+            </span>
+          </span>
+        </div>
+      </header>
+      <hr class="h-rule">
+      <section class="users-section">
+        <h2>Style <span class="users-count" id="styleCount">(0)</span></h2>
+
+        <div class="users-toolbar">
+          <input class="table-search" placeholder="Search Users" />
+          <div class="toolbar-actions">
+            <button><i class="ri-upload-line"></i> Export</button>
+            <button><i class="ri-filter-3-line"></i> Filter</button>
+            <button class="add-style" id="addStyleBtn"><i class="ri-add-line"></i>Add style</button>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table class="styles-table">
+            <colgroup>
+              <col class="col1">
+              <col class="col2">
+              <col class="col3">
+              <col class="col4">
+              <col class="col5">
+              <col class="col6">
+              <!-- <col class="col7"> -->
+            </colgroup>
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Date published</th>
+                <th>Actions</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+        </div>
+
+
+        <div id="styleModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-content-heading">
+              <h2>Add New Outfit</h2>
+              <i class="ri-close-line close"></i>
+            </div>
+            <hr class="add-style-rule">
+            <form id="styleForm">
+              <label class="add-style-title">Title</label><br>
+              <input type="text" id="title" required><br>
+              <div class="image-upload-container" id="imageUploadContainer">
+                <span id="uploadText">Upload an image</span>
+                <input type="file" id="image" accept="image/*"  multiple>
+                <img id="imagePreview" src="" alt="Preview" style="display: none;">
+                <button type="button" id="removeImageBtn" class="remove-btn" style="display: none;">
+                  <i class="ri-close-line"></i>
+                </button>
+              </div>
+              <label class="add-style-title">Category</label><br>
+              <select id="category" required>
+                <option value="" disabled selected>Select category</option>
+                <!-- <option value="">Select category</option> -->
+              </select>
+              <br>
+              <label class="add-style-title">Style Description</label><br>
+              <textarea id="description" required></textarea><br>
+              <input type="number" id="views" placeholder="Views" value="0" readonly><br>
+              <button class="save-style" type="submit" id="saveStyle">Save Style</button>
+            </form>
+          </div>
+        </div>
+
+
+        <div id="viewModal" class="modal">
+          <div class="view-modal-content">
+            <span class="close-view"><i class="ri-close-line"></i></span>
+            
+
+            <div class="modal-header">
+              <h2 id="viewTitle"></h2>
+              <p id="viewDescription"></p>
+              <p id="viewCategory"></p>
+            </div>
+
+            <div id="viewImageContainer">
+              <img id="viewImage" src="" alt="Style Image" />
+            </div>
+          </div>
+
+
+        </div>
+  </div>
+  </section>
+  </main>
+  </div>
+
+
+
+  <script src="main.js"></script>
+</body>
+
+</html>
+
+
+<!-- <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  SIWES 1
+                </td>
+                <td>SEN 299</td>
+                <td>3</td>
+                <td><span class="status-badge status-active">Published</span></td>
+                <td class="date_published">15th May, 2023 - 12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Digital Logic Design
+                </td>
+                <td>IFT 211</td>
+                <td>2</td>
+                <td><span class="status-badge status-disabled">Draft</span></td>
+                <td class="date_published">15th May, 2023 -12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Enterpreneurship and Innovation
+                </td>
+                <td>SEN 210</td>
+                <td>3</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+                <td class="date_published">15th May, 2023 - 12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Enterpreneurship and Innovation
+                </td>
+                <td>MTH 210</td>
+                <td>3</td>
+                <td><span class="status-badge status-active">Paid</span></td>
+                <td class="date_published">15th May, 2023 - 12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Enterpreneurship and Innovation
+                </td>
+                <td>SEN 201</td>
+                <td>2</td>
+                <td><span class="status-badge status-active">Paid</span></td>
+                <td class="date_published">15th May, 2023 - 12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Enterpreneurship and Innovation
+                </td>
+                <td>COS 201</td>
+                <td>3</td>
+                <td><span class="status-badge status-active">Paid</span></td>
+                <td class="date_published">15th May, 2023-12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Enterpreneurship and Innovation
+                </td>
+                <td>SEN 204</td>
+                <td>2</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+                <td class="date_published">15th May, 2023-12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Enterpreneurship and Innovation
+                </td>
+                <td>SEN 204</td>
+                <td>2</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+                <td class="date_published">15th May, 2023-12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Enterpreneurship and Innovation
+                </td>
+                <td>SEN 204</td>
+                <td>2</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+                <td class="date_published">15th May, 2023-12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Enterpreneurship and Innovation
+                </td>
+                <td>SEN 204</td>
+                <td>2</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+                <td class="date_published">15th May, 2023-12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Enterpreneurship and Innovation
+                </td>
+                <td>SEN 204</td>
+                <td>2</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+                <td class="date_published">15th May, 2023-12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td class="truncate">
+                  <img src="./image/Frame 886.png" class="author-avatar" alt="avatar" />
+                  Enterpreneurship and Innovation
+                </td>
+                <td>SEN 204</td>
+                <td>2</td>
+                <td><span class="status-badge status-disabled">Failed</span></td>
+                <td class="date_published">15th May, 2023-12:30am</td>
+                <td>
+                  <div class="menu-wrapper">
+                    <button id="btn">⋮</button>
+                    <div class="menu-options">
+                      <button class="edit"><i class="ri-pencil-line"></i> Edit</button>
+                      <button class="delete"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-footer">
+          <div class="rows-per-page">
+            Rows per Page
+            <select>
+              <option>12</option>
+              <option>24</option>
+              <option>36</option>
+            </select>
+          </div>
+          <div class="pagination">
+            <button>&lt;</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="active">4</button>
+            <span>...</span>
+            <button>19</button>
+            <button>20</button>
+            <button>&gt;</button>
+          </div>
+          <div class="showing-info">
+            Showing 1 - 12 of 1245
+          </div>
+        </div>
+      </section> -->
+
+
+
+
+
+<!-- <div class="dashboard-container">
+
+
+
+      <section class="users-section">
+        <h2>Users <span class="users-count">(1245)</span></h2>
+        <div class="users-toolbar">
+          <input class="table-search" placeholder="Search user"/>
+          <div class="toolbar-actions">
+            <button>Export</button>
+            <button>Filter</button>
+            <button class="add-user">+ Add User</button>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>User</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Last active</th>
+                <th>Date joined</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Savannah Nguyen</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-active">Active</span></td>
+                <td>17 Oct, 2020</td>
+                <td>24 May, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Marvin McKinney</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-deleted">Deleted</span></td>
+                <td>21 Sep, 2020</td>
+                <td>17 Oct, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Dianne Russell</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-deleted">Deleted</span></td>
+                <td>1 Feb, 2020</td>
+                <td>17 Oct, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Cameron Williamson</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-active">Active</span></td>
+                <td>22 Oct, 2020</td>
+                <td>17 Oct, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Eleanor Pena</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-active">Active</span></td>
+                <td>22 Oct, 2020</td>
+                <td>17 Oct, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Arlene McCoy</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-paid">Paid</span></td>
+                <td>17 Oct, 2020</td>
+                <td>8 Sep, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Devon Lane</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-active">Active</span></td>
+                <td>24 May, 2020</td>
+                <td>1 Feb, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Floyd Miles</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-deleted">Deleted</span></td>
+                <td>22 Oct, 2020</td>
+                <td>17 Oct, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Kristin Watson</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-active">Active</span></td>
+                <td>8 Sep, 2020</td>
+                <td>1 Feb, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Leslie Alexander</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-active">Active</span></td>
+                <td>1 Feb, 2020</td>
+                <td>1 Feb, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Wade Warren</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-active">Active</span></td>
+                <td>1 Feb, 2020</td>
+                <td>1 Feb, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"/></td>
+                <td><img src="Assets/Frame 895.jpg" class="user-avatar" alt="avatar"/>Courtney Henry</td>
+                <td>savannahnguyen@gmail.com</td>
+                <td><span class="status-badge status-deleted">Deleted</span></td>
+                <td>21 Sep, 2020</td>
+                <td>1 Feb, 2020</td>
+                <td class="td-dots">⋮</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination-row">
+          <div>
+            Rows per Page:
+            <select>
+              <option>12</option>
+              <option>24</option>
+              <option>36</option>
+            </select>
+          </div>
+          <div class="pagination">
+            <span>&lt;</span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span class="pagination-divider"></span>
+            <span>19</span>
+            <span>20</span>
+            <span>&gt;</span>
+          </div>
+          <div>Showing 1 - 12 of 1245</div>
+        </div>
+      </section>
+    </main>
+  </div> -->
