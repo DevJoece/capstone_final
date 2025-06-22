@@ -221,6 +221,10 @@ hr{
 .add-style i{
     font-size:0.875rem ;
 }
+.add-style a{
+  text-decoration: none;
+  color: #fff;
+}
 .table-header h3{
     font-family: 'Inter',sans-serif;
     font-weight: 600;
