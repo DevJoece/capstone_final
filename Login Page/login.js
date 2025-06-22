@@ -76,7 +76,7 @@ form.addEventListener("submit", function (e) {
       .then((data) => {
         console.log(data);
         // No need to store token — cookie handles it
-        window.location.href = "../blog page/index.html";
+        window.location.href = "../Dashboard_page/index.html";
       })
       .catch((error) => {
         console.error("Error:", error);
