@@ -78,7 +78,7 @@ form.addEventListener("submit", function (e) {
         // No need to store token — cookie handles it
         // store admin detais
         const adminInfo = {
-          email :data.user.email
+          email :data.email
         }
         localStorage.setItem("adminInfo", JSON.stringify(adminInfo));
         // Redirect to dashboard
