@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
        <img src="${style.imageUrls}" alt="${style.title}" class="thumb-img" />
        <span class="blog-title" style="cursor:pointer;">${style.title}</span>
        </td>
-       <td>${style.description}</td>
+       <td class ="description">${style.description}</td>
        <td>${categoryName}</td>
        <td>${formatDate(new Date(style.createdAt))}</td>
        <td><i class="ri-more-fill action-menu" style="cursor:pointer;" data-id="${style.id}"></i></td>

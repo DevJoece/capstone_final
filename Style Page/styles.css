@@ -597,6 +597,12 @@ color: white;
   display: flex;
   align-items: center;
 }
+.styles-table td.description{
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 
 .styles-table tbody tr:hover {
