@@ -85,11 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
       // }
       // const categories = data.data || []
       const categorySelect = document.getElementById("category");
+      categorySelect.innerHTML = `<option value="" disabled selected>Select category</option>`;
 
       categoryMap = {}
       data.data.forEach((category) => {
-        categoryMap[category.id] = category.name
-        categorySelect.innerHTML = `<option value="" disabled selected>Select category</option>`;
         const option = document.createElement("option");
         option.value = category.id;
         option.textContent = category.name;
