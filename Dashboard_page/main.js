@@ -15,9 +15,21 @@ document.querySelector('.search-bar').addEventListener('input', function () {
   });
 });
 
+// load admin details
+function loadAdminDetails() {
+  const adminInfo = JSON.parse(localStorage.getItem("adminInfo"));
+  if (adminInfo) {
+      document.getElementById("adminEmail").textContent = adminInfo.email;
+  } else {
+       window.location.href = "../index.html"
+    }
+  }
+
 // Total Blogs Count
 document.addEventListener("DOMContentLoaded", function () {
   const totalBlogsEl = document.getElementById("totalBlogs");
+
+  
 
   fetch("https://my-style-mag-backend.onrender.com/api/v1/blog/admin", {
     method: "GET",
@@ -234,5 +246,7 @@ window.addEventListener("load", () => {
   document.querySelector(".style-card").style.animation = "slideInTop 1.3s ease-out 0.4s forwards";
   document.querySelector(".user-card").style.animation = "slideInBottom 1.3s ease-out 0.6s forwards";
 });
+
+loadAdminDetails()
 
 

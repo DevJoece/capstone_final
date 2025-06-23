@@ -41,6 +41,18 @@ document.addEventListener("DOMContentLoaded", function () {
     removeImageBtn.style.display = "none";
   });
 
+  
+
+  // load admin details
+  function loadAdminDetails() {
+    const adminInfo = JSON.parse(localStorage.getItem("adminInfo"));
+    if (adminInfo) {
+      document.getElementById("adminEmail").textContent = adminInfo.email;
+    } else {
+       window.location.href = "../index.html"
+    }
+  }
+
   function populateCategoryDropdown(selectedCategoryId = "") {
     const categorySelect = document.getElementById("category");
     categorySelect.innerHTML = "";
@@ -227,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.disabled = true;
     submitBtn.textContent = blogId ? "Updating Blog..." : "Saving Blog...";
 
-    const method = blogId ? "PUT" : "POST";
+    const method = blogId ? "PATCH" : "POST";
     const url = blogId
       ? `https://my-style-mag-backend.onrender.com/api/v1/blog/${blogId}`
       : "https://my-style-mag-backend.onrender.com/api/v1/blog";
@@ -345,6 +357,7 @@ document.addEventListener("DOMContentLoaded", function () {
       };
     }
   })
+  loadAdminDetails()
   loadAdminBlogs();
   populateCategoryDropdown();
 });

@@ -1,6 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
   const tableBody = document.getElementById("usersTableBody");
 
+
+  // load admin details
+  function loadAdminDetails() {
+    const adminInfo = JSON.parse(localStorage.getItem("adminInfo"));
+    if (adminInfo) {
+      document.getElementById("adminEmail").textContent = adminInfo.email;
+    } else {
+       window.location.href = "../index.html"
+    }
+  }
+
   // Fetch users and populate the table
   fetch("https://my-style-mag-backend.onrender.com/api/v1/users", {
     method: "GET",
@@ -161,4 +172,6 @@ document.addEventListener("DOMContentLoaded", checkScreenSize);
 
 // Run on window resize
 window.addEventListener("resize", checkScreenSize);
+
+loadAdminDetails()
 });

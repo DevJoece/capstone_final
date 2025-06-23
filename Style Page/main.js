@@ -131,7 +131,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const count = document.querySelectorAll(".styles-table tbody tr").length;
     document.getElementById("styleCount").textContent = `(${count})`;
   }
-
+  // load admin details
+  function loadAdminDetails() {
+    const adminInfo = JSON.parse(localStorage.getItem("adminInfo"));
+    if (adminInfo) {
+      document.getElementById("adminEmail").textContent = adminInfo.email;
+    } else {
+       window.location.href = "../index.html"
+    }
+  }
   // Load styles from API
   function loadOutfit() {
     fetch("https://my-style-mag-backend.onrender.com/api/v1/outfits", {
@@ -414,7 +422,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
+loadAdminDetails()
 loadCategories()
 loadOutfit();
   

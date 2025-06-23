@@ -76,6 +76,12 @@ form.addEventListener("submit", function (e) {
       .then((data) => {
         console.log(data);
         // No need to store token — cookie handles it
+        // store admin detais
+        const adminInfo = {
+          email : data.data.user.email
+        }
+        localStorage.setItem("adminInfo", JSON.stringify(adminInfo));
+        // Redirect to dashboard
         window.location.href = "../Dashboard_page/index.html";
       })
       .catch((error) => {
