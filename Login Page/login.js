@@ -74,7 +74,7 @@ form.addEventListener("submit", function (e) {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        console.log("Response:",data);
         // No need to store token — cookie handles it
         // store admin detais
         const adminInfo = {
