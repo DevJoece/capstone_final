@@ -580,6 +580,14 @@ color: white;
 .blogs-table td.title-cell {
   display: flex;
   align-items: center;
+  max-width: 320px;
+}
+.blog-table td.blog-title{
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
 }
 
 
@@ -617,8 +625,10 @@ color: white;
 /* View Modal Content */
 .view-modal-content {
   background: #fff;
-  width: 70%;
   max-width: 800px;
+  max-height: 80vh;
+  width: 90%;
+  overflow-y: auto;
   margin: 60px auto;
   padding: 30px 24px;
   border-radius: 14px;
@@ -644,7 +654,7 @@ color: white;
 
 /* Modal header */
 .view-modal-content .modal-header h2 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: #222;
   margin-bottom: 6px;
 }
@@ -665,6 +675,7 @@ color: white;
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  margin: 8px auto;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
@@ -672,12 +683,16 @@ color: white;
 /* Content styling */
 .view-modal-content .modal-body {
   margin-top: 20px;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .view-modal-content .modal-body p {
   font-size: 0.95rem;
   line-height: 1.7;
   color: #444;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 /* Footer meta info */
