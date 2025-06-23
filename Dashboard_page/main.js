@@ -247,6 +247,6 @@ window.addEventListener("load", () => {
   document.querySelector(".user-card").style.animation = "slideInBottom 1.3s ease-out 0.6s forwards";
 });
 
-loadAdminDetails()
+window.addEventListener("DOMContentLoaded", loadAdminDetails())
 
 
