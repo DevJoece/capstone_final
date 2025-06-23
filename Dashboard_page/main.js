@@ -19,7 +19,7 @@ document.querySelector('.search-bar').addEventListener('input', function () {
 function loadAdminDetails() {
   const adminInfo = JSON.parse(localStorage.getItem("adminInfo"));
   if (adminInfo) {
-      document.getElementById("adminEmail").textContent = adminInfo.email;
+      document.getElementById("adminEmail").innerHTML = adminInfo.email;
   } else {
        window.location.href = "../index.html"
     }
