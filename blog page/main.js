@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     newRow.innerHTML = `
       <td><input type="checkbox" /></td>
       <td class="title-cell">
-        ${blog.imageUrl ? `<img src="${blog.imageUrl}" alt="Blog Image" style="width:40px;height:40px;object-fit:cover;margin-right:8px;border-radius:50%;flex-shrink:0">` : ""}
+        ${blog.imageUrl ? `<img src="${blog.imageUrl}" alt="Blog Image" style="width:40px;height:40px;object-fit:cover;margin-right:8px;border-radius:50%;">` : ""}
         <span class="blog-title">${blog.title}</span>
       </td>
       <td>${blog.category?.name || 'Uncategorized'}</td>
