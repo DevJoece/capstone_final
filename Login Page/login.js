@@ -74,13 +74,14 @@ form.addEventListener("submit", function (e) {
         return response.json();
       })
       .then((data) => {
-        console.log("Response:",data);
+        console.log("login response:",data);
         // No need to store token — cookie handles it
         // store admin detais
         const adminInfo = {
-          email :data.email
+          email :data.data.email
         }
         localStorage.setItem("adminInfo", JSON.stringify(adminInfo));
+        console.log(localStorage.getItem("adminInfo"))
         // Redirect to dashboard
         window.location.href = "../Dashboard_page/index.html";
       })
@@ -122,24 +123,24 @@ typePassword.addEventListener("input", () => {
   generalError.classList.remove("show");
 });
 
-function checkScreenSize() {
-  const overlay = document.getElementById("mobileOverlay");
-  const mainContent = document.querySelector(".main-content");
+// function checkScreenSize() {
+//   const overlay = document.getElementById("mobileOverlay");
+//   const mainContent = document.querySelector(".main-content");
 
-  if (window.innerWidth < 1024) {
-    overlay.style.display = "block";
-    mainContent.classList.add("hide-content");
-  } else {
-    overlay.style.display = "none";
-    mainContent.classList.remove("hide-content");
-  }
-}
+//   if (window.innerWidth < 1024) {
+//     overlay.style.display = "block";
+//     mainContent.classList.add("hide-content");
+//   } else {
+//     overlay.style.display = "none";
+//     mainContent.classList.remove("hide-content");
+//   }
+// }
 
-// Run on initial load
-document.addEventListener("DOMContentLoaded", checkScreenSize);
+// // Run on initial load
+// document.addEventListener("DOMContentLoaded", checkScreenSize);
 
 // Run on window resize
-window.addEventListener("resize", checkScreenSize);
+// window.addEventListener("resize", checkScreenSize);
 
 
 
