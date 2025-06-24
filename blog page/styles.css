@@ -583,7 +583,7 @@ color: white;
 .blogs-table td.title-cell {
   display: flex;
   align-items: center;
-  max-width: 320px;
+  max-width: 300px;
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
@@ -593,7 +593,7 @@ color: white;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 250px;
+  max-width: 220px;
   min-width: 0;
 }
 
