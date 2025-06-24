@@ -136,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const adminInfo = JSON.parse(localStorage.getItem("adminInfo"));
     if (adminInfo) {
       document.getElementById("adminEmail").textContent = adminInfo.email;
+      document.getElementById("adminThumbnail").textContent = adminInfo.avatarLetter;
     } else {
        window.location.href = "../index.html"
     }

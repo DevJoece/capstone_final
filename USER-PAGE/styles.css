@@ -257,6 +257,18 @@ body {
     border-bottom: 1px solid #f3f3f3;
 
   }
+  .avatar-circle{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #f4641a;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(193, 191, 191)
+}
 
   .menu-wrapper{
     position: relative;
