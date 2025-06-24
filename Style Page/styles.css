@@ -582,7 +582,13 @@ color: white;
 .styles-table td {
   vertical-align: middle;
 }
-
+.styles-table .thumb-img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+  object-fit: cover;
+}
 .avatar-circle{
   width: 40px;
   height: 40px;

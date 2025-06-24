@@ -585,7 +585,7 @@ color: white;
   align-items: center;
   max-width: 320px;
 }
-.blog-table td.blog-title{
+.blogs-table td.blog-title{
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
