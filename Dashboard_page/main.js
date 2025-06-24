@@ -20,6 +20,7 @@ function loadAdminDetails() {
   const adminInfo = JSON.parse(localStorage.getItem("adminInfo"));
   if (adminInfo) {
       document.getElementById("adminEmail").innerHTML = adminInfo.email;
+      document.getElementById("adminThumbnail").textContent = adminInfo.avatarLetter
   } else {
        window.location.href = "../index.html"
     }

@@ -77,8 +77,11 @@ form.addEventListener("submit", function (e) {
         console.log("login response:",data);
         // No need to store token — cookie handles it
         // store admin detais
+        const email = data.data.email
+        const avatarLetter = email.charAt(0).toUpperCase()
         const adminInfo = {
-          email :data.data.email
+          email :email,
+          avatarLetter:avatarLetter
         }
         localStorage.setItem("adminInfo", JSON.stringify(adminInfo));
         console.log(localStorage.getItem("adminInfo"))

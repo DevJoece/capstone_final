@@ -273,6 +273,17 @@ tbody tr:hover {
   transition: background-color 0.3s ease;
 }
 
+.avatar-circle{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #f4641a;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @keyframes slideInTop {
   0% {
